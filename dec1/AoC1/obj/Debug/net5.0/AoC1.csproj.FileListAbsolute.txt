@@ -1,0 +1,16 @@
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\bin\Debug\net5.0\AoC1.exe
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\bin\Debug\net5.0\AoC1.deps.json
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\bin\Debug\net5.0\AoC1.runtimeconfig.json
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\bin\Debug\net5.0\AoC1.runtimeconfig.dev.json
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\bin\Debug\net5.0\AoC1.dll
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\bin\Debug\net5.0\ref\AoC1.dll
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\bin\Debug\net5.0\AoC1.pdb
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\obj\Debug\net5.0\AoC1.csprojAssemblyReference.cache
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\obj\Debug\net5.0\AoC1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\obj\Debug\net5.0\AoC1.AssemblyInfoInputs.cache
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\obj\Debug\net5.0\AoC1.AssemblyInfo.cs
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\obj\Debug\net5.0\AoC1.csproj.CoreCompileInputs.cache
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\obj\Debug\net5.0\AoC1.dll
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\obj\Debug\net5.0\ref\AoC1.dll
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\obj\Debug\net5.0\AoC1.pdb
+C:\Users\nmoore\Pictures\AoC2021\dec1\AoC1\obj\Debug\net5.0\AoC1.genruntimeconfig.cache
