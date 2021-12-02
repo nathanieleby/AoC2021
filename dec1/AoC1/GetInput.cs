@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace AoC1
+namespace AoC
 {
     class GetInput
     {
@@ -11,6 +11,8 @@ namespace AoC1
             //FileStream inputFile = File.OpenRead("input.txt");
 
             string[] contents = File.ReadAllLines("input.txt");
+
+            Console.WriteLine("Input File Lenght: " + contents.Length);
 
             return contents;
         }
