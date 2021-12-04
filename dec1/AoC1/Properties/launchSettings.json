@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AoC1": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
