@@ -15,8 +15,8 @@ namespace AoC
 
             //Day2.Part1( inFile );
             //Day2.Part2( inFile );
-            Day3.Part1( inFile );
-            Day3.Part2( inFile );
+            Console.WriteLine(Day3.Part1( inFile ));
+            Console.WriteLine(Day3.Part2( inFile ));
 
         }
 
