@@ -5,20 +5,11 @@ namespace AoC
 {
     class GetInput
     {
+        public static string[] contents;
         public static string[] ReadInputFile()
         {
 
-            string[] contents = File.ReadAllLines("input.txt");
-
-            Console.WriteLine("Input File Lenght: " + contents.Length);
-
-            return contents;
-        }
-
-        public static string[] ReadInputDay2()
-        {
-
-            string[] contents = File.ReadAllLines("input2.txt");
+            contents = File.ReadAllLines("input.txt");
 
             Console.WriteLine("Input File Lenght: " + contents.Length);
 

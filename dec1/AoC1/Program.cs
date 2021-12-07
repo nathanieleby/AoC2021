@@ -11,12 +11,10 @@ namespace AoC
         static void Main(string[] args)
         {
 
-            string[] inFile = GetInput.ReadInputFile();
+            GetInput.ReadInputFile();
 
-            //Day2.Part1( inFile );
-            //Day2.Part2( inFile );
-            Console.WriteLine(Day3.Part1( inFile ));
-            Console.WriteLine(Day3.Part2( inFile ));
+            Console.WriteLine(Day3.Part1( GetInput.contents ));
+            Console.WriteLine(Day3.Part2( GetInput.contents ));
 
         }
 
