@@ -50,34 +50,37 @@ namespace AoC
             int epsilon = 0;         
             int tally   = 0;
             int result  = 0;
-            char mostCommon = '0';
+            char leastCommon = '0';
 
-            for (i = 0; i < oxygenCode[0].Length; i++)
+            i = 0;
+            while(oxygenCode.Count > 1 && i < oxygenCode[0].Length)
             {
                 tally = 0;
-                for (j = oxygenCode.Count - 1; j >= 0; j--)
+                for (j = 0; j < oxygenCode.Count; j++)
                 {
-                    if (oxygenCode[j][oxygenCode.Count - i - 1] == '1')
+                    if (oxygenCode[j][i] == '1')
                         tally += 1;
-
-
                 }
 
-                if (tally >= (numbers.Length / 2) )
+                if (tally >= (oxygenCode.Count / 2) )
                 {
-                    mostCommon = '0';
+                    leastCommon = '0';
                 }
                 else
                 {
-                    mostCommon = '1';
+                    leastCommon = '1';
                 }
 
-                for (j = oxygenCode.Count - 1; j >= 0; j--)
+                for (j = oxygenCode.Count - 1;  j >= 0; j--)
                 {
-                    if (oxygenCode[j][oxygenCode.Count - i - 1] == mostCommon)
+                    if (oxygenCode[j][i] == leastCommon)
                         oxygenCode.RemoveAt(j);
                 }
 
+                if (oxygenCode.Count == 1)
+                    break;
+                
+                i++;
             }
 
             result = epsilon * gamma;
