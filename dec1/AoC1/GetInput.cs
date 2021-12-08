@@ -19,9 +19,28 @@ namespace AoC
         public static string[] ReadInputFileBingo()
         {
 
-            //contents = File.("input4.txt");
+            contents = File.ReadAllLines("input4.txt");
 
-            Console.WriteLine("Input File Lenght: " + contents.Length);
+            //contents = File.("input4.txt");
+            using (StreamReader input = new StreamReader("input4.txt"))
+            {
+                string temp = input.ReadLine();
+                string[] randomsInt = temp.Split(',');
+
+                foreach (string line in randomsInt)
+                    Day4.bingoNumbers.Add(Int32.Parse(line));
+
+                //while((temp = input.ReadLine()) != null)
+                //{
+                //
+                //}
+
+
+            }
+            
+            
+           
+               // Console.WriteLine("Input File Lenght: " + contents.Length);
 
             return contents;
         }

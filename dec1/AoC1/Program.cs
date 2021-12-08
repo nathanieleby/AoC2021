@@ -13,7 +13,7 @@ namespace AoC
 
             GetInput.ReadInputFileBingo();
 
-            //Console.WriteLine(Day3.Part1( GetInput.contents ));
+            Console.WriteLine(Day4.Part1( GetInput.contents ));
             //Console.WriteLine(Day3.Part2( GetInput.contents ));
 
         }
