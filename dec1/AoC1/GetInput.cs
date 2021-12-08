@@ -19,7 +19,7 @@ namespace AoC
         public static string[] ReadInputFileBingo()
         {
 
-            contents = File.ReadAllLines("input.txt");
+            //contents = File.("input4.txt");
 
             Console.WriteLine("Input File Lenght: " + contents.Length);
 
