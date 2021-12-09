@@ -25,15 +25,21 @@ namespace AoC
             using (StreamReader input = new StreamReader("input4.txt"))
             {
                 string temp = input.ReadLine();
-                string[] randomsInt = temp.Split(',');
+                string[] randomInt = temp.Split(',');
+             
+                foreach (string line  in randomInt)
+                {
+                    Day4.bingoNums.Add(Int32.Parse(line));
+                }
 
-                foreach (string line in randomsInt)
-                    Day4.bingoNumbers.Add(Int32.Parse(line));
+                int i = 1;
 
                 //while((temp = input.ReadLine()) != null)
                 //{
                 //
                 //}
+
+
 
 
             }
