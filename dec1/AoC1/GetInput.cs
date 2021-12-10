@@ -18,10 +18,6 @@ namespace AoC
 
         public static string[] ReadInputFileBingo()
         {
-
-            contents = File.ReadAllLines("input4.txt");
-
-            //contents = File.("input4.txt");
             using (StreamReader input = new StreamReader("input4.txt"))
             {
                 string temp = input.ReadLine();
@@ -32,15 +28,38 @@ namespace AoC
                     Day4.bingoNums.Add(Int32.Parse(line));
                 }
 
-                int i = 1;
-
-                //while((temp = input.ReadLine()) != null)
-                //{
-                //
-                //}
 
 
 
+                int i = 0, j = 0, k=0;
+                while(temp != null)
+                {
+                    bingoGameCard tempCard = new bingoGameCard();
+                    for (i = 0; i < 5; i++)
+                    {
+                        temp = input.ReadLine();
+                        if (temp == null)
+                            break;
+
+                        randomInt = temp.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                        if (randomInt.Length == 0)
+                            i--;
+                        else if (randomInt.Length == 5)
+                        {
+                            for (j = 0; j < 5; j++)
+                            {
+                                tempCard.Num[i, j] = Int32.Parse(randomInt[j]);                                
+                            }
+
+                            if (i == 4)
+                            {
+                                Day4.cards.Add(tempCard);
+
+                            }
+                        }
+                    }  
+                    
+                }
 
             }
             
