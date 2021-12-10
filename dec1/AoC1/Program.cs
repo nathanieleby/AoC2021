@@ -11,10 +11,10 @@ namespace AoC
         static void Main(string[] args)
         {
 
-            GetInput.ReadInputFileBingo();
+            string [] input = GetInput.ReadInputFile();
 
-            Console.WriteLine("Part1 Answer:" + Day4.Part1());
-            Console.WriteLine("Part2 Answer:" + Day4.Part2());
+            Console.WriteLine("Part1 Answer:" + Day5.Part1(input));
+            Console.WriteLine("Part2 Answer:" + Day5.Part2(input));
 
         }
 
