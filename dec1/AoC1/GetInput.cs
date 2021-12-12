@@ -29,8 +29,6 @@ namespace AoC
                 }
 
 
-
-
                 int i = 0, j = 0, k=0;
                 while(temp != null)
                 {
@@ -62,12 +60,8 @@ namespace AoC
                 }
 
             }
-            
-            
-           
-               // Console.WriteLine("Input File Lenght: " + contents.Length);
-
-            return contents;
+                     
+         return contents;
         }
     }
 }

@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoC1", "AoC1.csproj", "{87E35CAB-93AF-4B50-98CB-7957EE0A456D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoC1", "AoC1.csproj", "{87E35CAB-93AF-4B50-98CB-7957EE0A456D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FA31B274-C3EC-4319-AA54-0B3B29D46D79}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
