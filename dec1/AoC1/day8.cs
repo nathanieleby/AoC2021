@@ -116,14 +116,10 @@ namespace AoC
             int tally = 0;
             
             for(i =0; i<other.Length;i++)
-            {
                 for (j=0; j< compare.Length; j++)
-                {
                     if (other[i] == compare[j])
                         tally += 1;
-                }
-            }
-
+  
             return tally;
         }
 
