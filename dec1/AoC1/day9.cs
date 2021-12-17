@@ -16,6 +16,8 @@ namespace AoC
             result = 0;
             int i, j;
 
+            int[][] grid = parseInput(input);
+
             for(i =0; i< input.Length;i++)
             {
                 for (j = 0; j < input[i].Length; j++)
@@ -23,61 +25,73 @@ namespace AoC
 
                     //upper left corner
                     if (i == 0 && j == 0)
-                        if (input[i][j] < input[i + 1][j] && 
-                            input[i][j] < input[i][j + 1])
-                                result = input[i][j] + 1;
-
+                    {
+                        if (grid[i][j] < grid[i + 1][j] &&
+                            grid[i][j] < grid[i][j + 1])
+                            result += grid[i][j] + 1;
+                    }
                     //upper right corner
-                    else if (i == 0 && j == input[1].Length - 1)
-                        if (input[i][j] < input[i + 1][j] && input[i][j] < input[i][j - 1])
-                                result = input[i][j] + 1;
-
-                    //lower left corner
-                    else if (i == input.Length - 1 && j == 0)
-                        if (input[i][j] < input[i + 1][j] && input[i][j] < input[i][j + 1])
-                                result = input[i][j] + 1;
-
-                    //lower right corner
-                    else if (i == input.Length - 1 && j == input[1].Length - 1)
-                        if (input[i][j] < input[i + 1][j] && 
-                            input[i][j] < input[i][j - 1])
-                                result = input[i][j] + 1;
-
+                    else if (i == 0 && j == grid[i].Length - 1)
+                    {
+                        if (grid[i][j] < grid[i + 1][j] && grid[i][j] < grid[i][j - 1])
+                            result += grid[i][j] + 1;
+                    }
                     //top
                     else if (i == 0)
-                        if (input[i][j] < input[i + 1][j] &&
-                            input[i][j] < input[i][j + 1] &&
-                            input[i][j] < input[i][j - 1])
-                                result = input[i][j] + 1;
-
+                    {
+                        if (grid[i][j] < grid[i + 1][j] &&
+                            grid[i][j] < grid[i][j + 1] &&
+                            grid[i][j] < grid[i][j - 1])
+                            result += grid[i][j] + 1;
+                    }
+                    //lower left corner
+                    else if (i == grid.Length - 1 && j == 0)
+                    {
+                        if (grid[i][j] < grid[i - 1][j] && grid[i][j] < grid[i][j + 1])
+                            result += grid[i][j] + 1;
+                    }
                     //left
                     else if (j == 0)
-                        if (input[i][j] < input[i + 1][j] &&
-                            input[i][j] < input[i - 1][j] &&
-                            input[i][j] < input[i][j + 1])
-                                result = input[i][j] + 1;
-
+                    {
+                        if (grid[i][j] < grid[i + 1][j] &&
+                            grid[i][j] < grid[i - 1][j] &&
+                            grid[i][j] < grid[i][j + 1])
+                            result += grid[i][j] + 1;
+                    }
+                    //lower right corner
+                    else if (i == grid.Length - 1 && j == grid[i].Length - 1)
+                    {
+                        if (grid[i][j] < grid[i - 1][j] &&
+                            grid[i][j] < grid[i][j - 1])
+                            result += grid[i][j] + 1;
+                    }
+                    
                     //right
-                    else if (j == input[i].Length - 1)
-                        if (input[i][j] < input[i + 1][j] &&
-                            input[i][j] < input[i - 1][j] &&
-                            input[i][j] < input[i][j - 1])
-                                result = input[i][j] + 1;
-
+                    else if (j == grid[i].Length - 1)
+                    {
+                        if (grid[i][j] < grid[i + 1][j] &&
+                            grid[i][j] < grid[i - 1][j] &&
+                            grid[i][j] < grid[i][j - 1])
+                            result += grid[i][j] + 1;
+                    }
+                    
                     //bottom
-                    else if (j == input[i].Length - 1)
-                        if (input[i][j] < input[i - 1][j] &&
-                            input[i][j] < input[i][j + 1] &&
-                            input[i][j] < input[i][j - 1])
-                                result = input[i][j] + 1;
+                    else if (i == grid.Length - 1)
+                    {
+                        if (grid[i][j] < grid[i - 1][j] &&
+                            grid[i][j] < grid[i][j + 1] &&
+                            grid[i][j] < grid[i][j - 1])
+                            result += grid[i][j] + 1;
+                    }
                     //center of grid
                     else
-                        if (input[i][j] < input[i - 1][j] &&
-                            input[i][j] < input[i + 1][j] &&
-                            input[i][j] < input[i][j + 1] &&
-                            input[i][j] < input[i][j - 1])
-                                result = input[i][j] + 1;
-
+                    {
+                        if (grid[i][j] < grid[i - 1][j] &&
+                            grid[i][j] < grid[i + 1][j] &&
+                            grid[i][j] < grid[i][j + 1] &&
+                            grid[i][j] < grid[i][j - 1])
+                            result += grid[i][j] + 1;
+                    }
                 }
             }
 
@@ -95,15 +109,22 @@ namespace AoC
 
 
 
-        private static void parseInput(string[] input)
+        private static int[][] parseInput(string[] input)
         {
-            int i;
+            int i = 0, j;
+            int[][] grid = new int[input.Length][ ];
 
             for (i = 0; i < input.Length; i++)
             {
+                grid[i] = new int[input[i].Length];
+
+                for (j = 0; j < input[i].Length; j++)
+                {
+                    grid[i][j] = int.Parse(input[i][j].ToString());
+                }
 
             }
-            return;
+            return grid;
         }
     }
 }
