@@ -11,8 +11,8 @@ namespace AoC
     {
         class XYPair
         {
-           public int x;
-           public int y;
+           public int i;
+           public int j;
         }
         
         
@@ -114,21 +114,69 @@ namespace AoC
         {
             result = 0;
             int i, j;
+            int[] top3 = new int[3];
 
+            foreach (XYPair lowPoint in xyPair)
+            {
+                result = 0;
+
+                result = checkGrid(lowPoint.i, lowPoint.j);
+
+                if (result > top3[0])
+                {
+                    top3[2] = top3[1];
+                    top3[1] = top3[0];
+                    top3[0] = result;
+                }
+                else if (result > top3[1])
+                {
+                    top3[2] = top3[1];
+                    top3[1] = result;
+                }
+                else if (result > top3[2])
+                {
+                    top3[2] = result;
+                }
+            }
+           
+            result = top3[0] * top3[1] * top3[2];
 
             return result;
         }
 
         private static int checkGrid(int i, int j)
         {
+            int sum = 0;
+
+            accessed[i][j] = true;
+            
+            if(isValidSquare(i - 1, j))
+                sum += checkGrid(i - 1, j);
+
+            if (isValidSquare(i, j + 1))
+                sum += checkGrid(i, j + 1);
+
+            if (isValidSquare(i + 1, j))
+                sum += checkGrid(i + 1, j);
+            
+            if (isValidSquare(i, j - 1))
+                sum += checkGrid(i, j - 1);
+
+
+            return sum + 1;
+        }
+
+        private static bool isValidSquare(int i, int j)
+        {
             if (i < 0 ||
                 j < 0 ||
-                i > grid.Length -1 ||
-                i > grid[i].Length - 1
-                )
-                return 0;
-
-            return 1;
+                i > grid.Length - 1 ||
+                j > grid[i].Length - 1 ||
+                grid[i][j] == 9 ||
+                accessed[i][j] == true)
+                return false;
+            else            
+                return true;
         }
 
         private static void lowPointFound(int i, int j, int[][] grid)
@@ -136,8 +184,8 @@ namespace AoC
             XYPair temp = new XYPair();
             result += grid[i][j] + 1;
 
-            temp.x = i;
-            temp.y = j;
+            temp.i = i;
+            temp.j = j;
 
             xyPair.Add(temp);
         }
