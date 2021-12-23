@@ -25,7 +25,7 @@ namespace AoC
         public static int Part1()
         {
 
-            int i, j, k;
+            int k;
             foreach (int number in bingoNums) 
             {
                 for (k = 0; k < cards.Count; k++)
@@ -44,7 +44,7 @@ namespace AoC
 
         public static int Part2()
         {
-            int i, j, k;
+            int k;
             int hasWonCount = 0;
             int loopCount = 0;
             result = 0; 

@@ -15,7 +15,7 @@ namespace AoC
         {
             result = 0;
 
-            int i, j;
+            int i;
             int lowestExpense = 0;
             int temp = 0;
 

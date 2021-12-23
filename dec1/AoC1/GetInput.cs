@@ -29,7 +29,7 @@ namespace AoC
                 }
 
 
-                int i = 0, j = 0, k=0;
+                int i = 0, j = 0;
                 while(temp != null)
                 {
                     bingoGameCard tempCard = new bingoGameCard();

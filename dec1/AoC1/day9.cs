@@ -113,7 +113,6 @@ namespace AoC
         public static int Part2(string[] input)
         {
             result = 0;
-            int i, j;
             int[] top3 = new int[3];
 
             foreach (XYPair lowPoint in xyPair)

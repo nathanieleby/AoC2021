@@ -15,7 +15,7 @@ namespace AoC
         public static int Part1(string[] coordinates)
         {
  
-            int i =0, j=0, k=0;
+            int i =0, j=0;
             int[,] grid = new int[1000, 1000];
             result = 0;
 
@@ -49,7 +49,7 @@ namespace AoC
 
         public static int Part2(string[] coordinates)
         {
-            int i = 0, j = 0, k = 0;
+            int i = 0, j = 0;
             int[,] grid = new int[1000, 1000];
             result = 0;
 

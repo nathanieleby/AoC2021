@@ -30,8 +30,6 @@ namespace AoC
             int[] first = new int[3];
             int[] second = new int[3];
 
-            int previous;
-            int current;
 
             for (int i = 3; i < inFile.Length; i++)
             {
