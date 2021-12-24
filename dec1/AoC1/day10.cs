@@ -48,12 +48,10 @@ namespace AoC
 
             for (i = 0; i < input.Length; i++)
             {
-
-
-                for (j = 0; j < input[i].Length; j++)
+                for  (j = 0; j < input[i].Length; j++)
                 {
-                    closingExists = 0;
-                    if(isClosingBracket(input[i][j]))
+                    
+                    if (isClosingBracket(input[i][j]))
                     {
                         closingExists++;
                         if (input[i][j] == closingParen)
@@ -64,12 +62,34 @@ namespace AoC
                                 j = 0;
                                 wasRemoved++;
                             }
-                            else if (!isClosingBracket(input[i][j-1]))
+                            else if (!isClosingBracket(input[i][j - 1]))
+                            {
+                                logErrors(input[i][j]);
+                            }
+
+                        }
+                        else if (input[i][j] == closingSquare)
+                        {
+                            if (input[i][j - 1] == openSquare) 
+                            { 
+                                input[i] = input[i].Remove(j - 1, 2);
+                                j = 0;
+                                wasRemoved++;
+                            }
+                            else if (!isClosingBracket(input[i][j - 1]))
                             {
                                 logErrors(input[i][j]);
                             }
                         }
                     }
+                    
+                }
+
+                if ((closingExists > 0 || wasRemoved > 0) && input[i].Length > 0)
+                {
+                    i--;
+                    wasRemoved = 0;
+                    closingExists = 0;
                 }
 
             }
