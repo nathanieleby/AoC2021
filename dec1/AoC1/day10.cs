@@ -35,25 +35,26 @@ namespace AoC
         static string curlyChunk  = "{}";
         static string angleChunk  = "<>";
 
-        static errorLog errors;
+        static errorLog errors = new errorLog();
         public static int Part1(string[] input)
         {
             result = 0;
 
             int i = 0, j = 0;
             int wasRemoved = 0;
-            int closingExists = 0;
-
+            int errorFound = 0;
   
 
             for (i = 0; i < input.Length; i++)
             {
+                errorFound = 0;
+                wasRemoved = 0;
                 for  (j = 0; j < input[i].Length; j++)
                 {
-                    
+                    errorFound = 0;
                     if (isClosingBracket(input[i][j]))
                     {
-                        closingExists++;
+
                         if (input[i][j] == closingParen)
                         {
                             if (input[i][j - 1] == openParen)
@@ -65,6 +66,8 @@ namespace AoC
                             else if (!isClosingBracket(input[i][j - 1]))
                             {
                                 logErrors(input[i][j]);
+                                errorFound++;
+                                break;
                             }
 
                         }
@@ -79,21 +82,57 @@ namespace AoC
                             else if (!isClosingBracket(input[i][j - 1]))
                             {
                                 logErrors(input[i][j]);
+                                errorFound++;
+                                break;
+                            }
+                        }
+                        else if (input[i][j] == closingCurly)
+                        {
+                            if (input[i][j - 1] == openCurly)
+                            {
+                                input[i] = input[i].Remove(j - 1, 2);
+                                j = 0;
+                                wasRemoved++;
+                            }
+                            else if (!isClosingBracket(input[i][j - 1]))
+                            {
+                                logErrors(input[i][j]);
+                                errorFound++;
+                                break;
+                            }
+                        }
+                        else if (input[i][j] == closingAngle)
+                        {
+                            if (input[i][j - 1] == openAngle)
+                            {
+                                input[i] = input[i].Remove(j - 1, 2);
+                                j = 0;
+                                wasRemoved++;
+                            }
+                            else if (!isClosingBracket(input[i][j - 1]))
+                            {
+                                logErrors(input[i][j]);
+                                errorFound++;
+                                break;
                             }
                         }
                     }
                     
                 }
 
-                if ((closingExists > 0 || wasRemoved > 0) && input[i].Length > 0)
+                if ( wasRemoved > 0     && 
+                    input[i].Length > 0 && 
+                    errorFound == 0)
                 {
                     i--;
-                    wasRemoved = 0;
-                    closingExists = 0;
                 }
 
             }
 
+            result += errors.parenErrors * lookup[0];
+            result += errors.squareErrors * lookup[1];
+            result += errors.curlyErrors * lookup[2];  
+            result += errors.angleErrors * lookup[3];
             return result;
         }
 
@@ -105,6 +144,13 @@ namespace AoC
 
 
             return result;
+        }
+
+        private static int removePair(string line, int index)
+        {
+            line = line.Remove(index - 1, 2);
+            
+            return 1;
         }
 
         private static void logErrors(char error)
