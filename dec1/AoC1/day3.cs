@@ -120,7 +120,6 @@ namespace AoC
                 i++;
             }
 
-            //for (i = oxygenCode[0].Length - 1; i >= 0; i-- )
             for (i = 0; i < oxygenCode[0].Length; i++)
             {
                 if(oxygenCode[0][i] == '1')
