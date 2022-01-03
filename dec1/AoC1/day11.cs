@@ -91,18 +91,19 @@ namespace AoC
 
                 flashCounter++;
 
+                //row above point
                 if(i > 0 && j > 0)
                     flashCounter += increaseEnergy(i - 1, j - 1);
                 if(i > 0)
                     flashCounter += increaseEnergy(i - 1, j);
                 if(i > 0 && j < octopusGrid[i].Length - 1)
                     flashCounter += increaseEnergy(i - 1, j + 1);
-                
+                //same row as point
                 if(j > 0)
                     flashCounter += increaseEnergy(i, j - 1);
                 if(j < octopusGrid[i].Length - 1)
                     flashCounter += increaseEnergy(i, j + 1);
-
+                //row below point
                 if (i < octopusGrid.Count - 1 && j > 0)
                     flashCounter += increaseEnergy(i + 1, j - 1);
                 if(i < octopusGrid.Count - 1)
