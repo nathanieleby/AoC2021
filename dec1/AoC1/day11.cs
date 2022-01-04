@@ -119,7 +119,10 @@ namespace AoC
 
         private static int resetFlashGrid( )
         {
-            int i, j, tempLength = hasFlashed[0].Length;
+            int i, j, tempLength = 0;
+
+            if (hasFlashed.Count>0)
+                tempLength = hasFlashed[0].Length;
 
             for (i = 0; i < hasFlashed.Count; i++)
                 hasFlashed[i] = new bool[tempLength];
