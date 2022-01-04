@@ -9,10 +9,20 @@ namespace AoC
 {
     class cave
     {
-        string name;
-        bool accessed = false;
-        string[] connections;
-        bool small;
+        public cave(string caveName)
+        {
+            name = caveName;
+
+            if (!Char.IsUpper(caveName[0]))
+                small = true;
+            else
+                small = false;
+        }
+
+        public string name;
+        public bool accessed = false;
+        public string[] connections;
+        public bool small;
 
     }
 
@@ -22,7 +32,7 @@ namespace AoC
     {
         static int result = 0;
         private static List<string[]> paths = new List<string[]>();
-
+        private static List<cave> caves = new List<cave>();
         static Dictionary<string, cave> caveDict = new Dictionary<string, cave>();
         public static int Part1(string[] input)
         {
@@ -56,19 +66,28 @@ namespace AoC
 
             string[] temp;
 
-            //example code @TODO remove later
-            //caveDict.ContainsKey("start");
-            //
-            //caveDict.Add("start", new cave());
-
             for (i = 0; i < input.Length; i++)
             {
 
                 temp = input[i].Split('-');
 
+                if (!caveDict.ContainsKey(temp[j]))
+                {
+                    buildCave(temp[j]);
+                }
+
+
             }
 
             return;
+        }
+        private static cave buildCave(string name)
+        {
+            cave newCave = new cave(name);
+            caveDict.Add(name, newCave);
+            caves.Add(newCave);
+
+            return newCave;
         }
     }
 }
