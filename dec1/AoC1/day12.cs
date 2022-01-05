@@ -17,11 +17,14 @@ namespace AoC
                 small = true;
             else
                 small = false;
+
+            
+
         }
 
         public string name;
         public bool accessed = false;
-        public string[] connections;
+        public List<string> connections = new List<string>();
         public bool small;
 
     }
@@ -40,10 +43,9 @@ namespace AoC
             int i = 0, j = 0, k = 0;
 
 
-
             parseInput(input);
 
-
+            
 
             return result;
         }
@@ -68,25 +70,44 @@ namespace AoC
 
             for (i = 0; i < input.Length; i++)
             {
-
                 temp = input[i].Split('-');
 
-                if (!caveDict.ContainsKey(temp[j]))
+                buildCave(temp[0], temp[1]);
+                buildCave(temp[1], temp[0]);
+            }
+
+            for (i = 0; i < caves.Count; i++)
+            {
+                if (caves[i].small && caves[i].connections.Count == 1)
                 {
-                    buildCave(temp[j]);
+                    if (char.IsLower(caves[i].connections[0][0]) &&
+                        !caves[i].connections[0].Equals("end")   &&
+                        !caves[i].connections[0].Equals("start"))  
+                    {
+                        caveDict.Remove(caves[i].name);
+                        caves.RemoveAt(i);
+                        i--;
+                    }
                 }
-
-
             }
 
             return;
         }
-        private static cave buildCave(string name)
+        private static cave buildCave(string name, string connection)
         {
-            cave newCave = new cave(name);
-            caveDict.Add(name, newCave);
-            caves.Add(newCave);
-
+            cave newCave = null;
+            if (!caveDict.ContainsKey(name))
+            {
+                newCave = new cave(name);
+                caveDict.Add(name, newCave);
+                caves.Add(newCave);
+                newCave.connections.Add(connection);
+            }
+            else if (caveDict.TryGetValue(name, out cave value))
+            {
+                if(!value.connections.Contains(connection))
+                    value.connections.Add(connection);
+            }
             return newCave;
         }
     }

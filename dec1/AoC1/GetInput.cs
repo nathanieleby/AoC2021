@@ -5,7 +5,7 @@ namespace AoC
 {
     class GetInput
     {
-        public static string[] contents;
+        private static string[] contents;
         public static string[] ReadInputFile()
         {
 
