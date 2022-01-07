@@ -13,8 +13,8 @@ namespace AoC
 
             string [] input = GetInput.ReadInputFile();
 
-            Console.WriteLine("Part1 Answer:" + Day12.Part1(input));
-            Console.WriteLine("Part2 Answer:" + Day12.Part2(input));
+            Console.WriteLine("Part1 Answer:" + Day13.Part1(input));
+            Console.WriteLine("Part2 Answer:" + Day13.Part2(input));
 
         }
         
