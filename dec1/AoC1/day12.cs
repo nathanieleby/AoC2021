@@ -114,7 +114,6 @@ namespace AoC
 
             return;
         }
-
         
         private static void parseInput(string[] input)
         {
